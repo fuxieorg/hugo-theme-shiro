@@ -1,7 +1,43 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+  <article>{{ .Content }}</article>
+
+  {{ with where .Site.RegularPages "Params.featured" true }}
+  <section>
+    <header>
+      <h2>Featured</h2>
+    </header>
+    <ul>
+      {{ range . }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
   {{ end }}
+  
+  {{ with first 10 .Site.RegularPages }}
+  <section>
+    <header>
+      <h2>Latest Updates</h2>
+    </header>
+    <ul>
+      {{ range . }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  <section>
+      <h2 class="text-3xl font-bold text-stone-900 dark:text-white">
+        Contact Me
+      </h2>
+      <ul>
+        <li><a href="{{ .Site.Params.github }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li>{{ .Site.Params.email }}</li>
+      </ul>
+    </section>
 {{ end }}
