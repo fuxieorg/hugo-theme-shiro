@@ -1,0 +1,15 @@
+# macOS-specific files
+.DS_Store
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains IDE
+.idea/
+
+# Obsidian
+.obsidian/
+
+# Hugo output
+.hugo_build.lock
+/public
