@@ -1,6 +1,12 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Shiro'
+enableRobotsTXT = true
+
+[params]
+  description = 'A Content-focused theme for Hugo.'
+  github = 'https://github.com/'
+  email = 'hello@example.org'
 
 [[menus.main]]
 name = 'Home'
@@ -13,11 +19,23 @@ pageRef = '/posts'
 weight = 20
 
 [[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
+name = 'Projects'
+pageRef = '/projects'
 weight = 30
+
+[[menus.main]]
+name = 'About'
+pageRef = '/about'
+weight = 40
 
 [module]
   [module.hugoVersion]
-    extended = false
-    min = "0.116.0"
+    extended = true
+    min = "0.123.6"
+
+[markup]
+  [markup.highlight]
+    style = 'github'
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 2
